@@ -1,5 +1,8 @@
 import dynamic from 'next/dynamic';
 
+// import ting lottie file dynamically 
+// so that there won't issue in rendering
+
 const Lottie = dynamic(() => import('react-lottie-player'), {
   ssr: false,
 });

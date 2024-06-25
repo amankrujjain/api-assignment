@@ -15,7 +15,7 @@ function Navbar({ onSearch }: NavbarProps) {
     }, 300),
     []
   );
-
+//Handling the search functionality by the name of the user
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchTerm(value);

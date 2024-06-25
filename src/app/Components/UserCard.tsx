@@ -1,5 +1,6 @@
 import { User } from '../types/userInterface';
 
+// card component for displaying the card like structure
 interface UserCardProps {
   user: User;
 }

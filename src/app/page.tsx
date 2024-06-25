@@ -1,4 +1,5 @@
 "use client"
+// use cient is used as useEffect is beign used and there is not any parent. So calling it here.
 
 import { useState, useEffect, useCallback } from 'react';
 import Head from 'next/head';
@@ -8,6 +9,7 @@ import { User } from './types/userInterface';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// using lodash libaray for debouncing
 import {debounce} from "lodash"
 import Loading from './Components/Loading';
 
@@ -16,6 +18,9 @@ function HomePage() {
   const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [toastShown, setToastShown] = useState<{ success: boolean; error: boolean }>({ success: false, error: false });
+
+
+  // Calling the api and fetching the data
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,6 +49,9 @@ function HomePage() {
     fetchData();
   }, [toastShown]);
 
+
+  // Handling debouncing logic here
+
   const handleSearch = useCallback(
     debounce((searchTerm: string) => {
       if (searchTerm === '') {
@@ -57,6 +65,9 @@ function HomePage() {
     }, 300),
     [users]
   );
+
+
+  // Display the loading lottie component
 
   if (loading) {
     return <Loading/>;
