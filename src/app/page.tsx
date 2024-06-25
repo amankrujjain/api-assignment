@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import {debounce} from "lodash"
+import Loading from './Components/Loading';
 
 function HomePage() {
   const [users, setUsers] = useState<User[]>([]);
@@ -58,7 +59,7 @@ function HomePage() {
   );
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading/>;
   }
 
   return (
